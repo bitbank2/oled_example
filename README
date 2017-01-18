@@ -1,0 +1,7 @@
+Sample code to talk to the oled96 library. This shows a simple example of
+getting the user's IP address and displaying it, along with the current time
+and date until the user presses ENTER to quit.
+
+Written by Larry Bank (bitbank@pobox.com)
+Project started 1/17/2017
+
