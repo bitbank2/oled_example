@@ -102,6 +102,8 @@ char szTime[16], szDate[16];
 			GetCurrentTime(szTime, szDate);
 			oledWriteString(0,3,szTime,1);
 			usleep(1000000);
+			i++;
+			oledSetContrast((i&1)? 64: 192);
 		}
 		oledShutdown();
 	}
