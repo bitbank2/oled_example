@@ -21,6 +21,7 @@ int GetIPAddress(char *interface, char *address)
 
     if (getifaddrs(&ifaddr) == -1) 
     {
+	printf("getifaddrs() returned -1\n");
         return -1;
     }
 
@@ -32,7 +33,9 @@ int GetIPAddress(char *interface, char *address)
 
         s=getnameinfo(ifa->ifa_addr,sizeof(struct sockaddr_in),host, NI_MAXHOST, NULL, 0, NI_NUMERICHOST);
 
-        if((strcmp(ifa->ifa_name,"wlan0")==0 || strcmp(ifa->ifa_name,"eth0")==0)&&(ifa->ifa_addr->sa_family==AF_INET))
+//	printf("network name = %s\n", ifa->ifa_name);
+
+        if((memcmp(ifa->ifa_name,"wl", 2)==0 || memcmp(ifa->ifa_name,"eth", 3)==0)&&(ifa->ifa_addr->sa_family==AF_INET))
         {
             if (s != 0)
             {
@@ -84,7 +87,7 @@ char szTime[16], szDate[16];
 	GetIPAddress(interface, address);
 	GetCurrentTime(szTime, szDate);
 
-	i=oledInit(0x3c);
+	i=oledInit(1, 0x3c);
 	if (i == 0)
 	{
 		oledFill(0); // fill with black
