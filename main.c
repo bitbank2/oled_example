@@ -7,6 +7,7 @@
 #include <stdlib.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
+#include <sys/time.h>
 #include <time.h>
 #include <netdb.h>
 #include <ifaddrs.h>
@@ -87,7 +88,7 @@ char szTime[16], szDate[16];
 	GetIPAddress(interface, address);
 	GetCurrentTime(szTime, szDate);
 
-	i=oledInit(1, 0x3c);
+	i=oledInit(0, 0x3c, 0, 0);
 	if (i == 0)
 	{
 		oledFill(0); // fill with black
