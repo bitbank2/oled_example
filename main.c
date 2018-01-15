@@ -36,7 +36,7 @@ int GetIPAddress(char *interface, char *address)
 
 //	printf("network name = %s\n", ifa->ifa_name);
 
-        if((memcmp(ifa->ifa_name,"wl", 2)==0 || memcmp(ifa->ifa_name,"eth", 3)==0)&&(ifa->ifa_addr->sa_family==AF_INET))
+        if((memcmp(ifa->ifa_name,"wl", 2)==0 || memcmp(ifa->ifa_name,"en0",3) == 0 || memcmp(ifa->ifa_name,"eth", 3)==0)&&(ifa->ifa_addr->sa_family==AF_INET))
         {
             if (s != 0)
             {

@@ -1,5 +1,5 @@
 CFLAGS=-c -Wall -O2 
-LIBS = -loled96 
+LIBS = -loled96 -larmbianio 
 
 all: oe 
 
